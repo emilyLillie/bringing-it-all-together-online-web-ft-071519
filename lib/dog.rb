@@ -42,6 +42,13 @@ class Dog
     SQL
     DB[:conn].execute(sql, self.name, self.breed, self.id)
   end 
+  
+  def find_by_id 
+    sql = <<-SQL
+    SELECT * WHERE id = ?
+    SQL
+    DB[:conn].execute(sql)
+  end
     
   def save 
     if self.id
